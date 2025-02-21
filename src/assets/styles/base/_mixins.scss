@@ -1,0 +1,42 @@
+@use "variables";
+
+@mixin font($family: variables.$font-primary, $size: variables.$fs-md, $weight: null, $line-height: 150%, $style: normal, $spacing: null) {
+  font-family: $family;
+  font-size: $size;
+  line-height: $line-height;
+  font-style: $style;
+
+  @if $weight != null {
+    font-weight: $weight;
+  }
+
+  @if $spacing != null {
+    letter-spacing: $spacing;
+  }
+}
+
+@mixin flex($direction: row, $justify: flex-start, $align: stretch, $gap: null, $wrap: null) {
+  display: flex;
+  flex-direction: $direction;
+  justify-content: $justify;
+  align-items: $align;
+
+  @if $gap != null {
+    gap: $gap;
+  }
+
+  @if $wrap != null {
+    flex-wrap: $wrap;
+  }
+}
+
+@mixin container {
+  max-width: 1508px;
+  margin: 0 auto;
+  padding: 0 variables.$spacing-sm;
+}
+
+@mixin icon {
+  height: variables.$icon;
+  width: variables.$icon;
+}

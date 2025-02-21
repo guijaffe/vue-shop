@@ -1,0 +1,75 @@
+@use "../base/variables";
+@use "../base/mixins";
+
+.items {
+  padding: variables.$spacing-md 0 variables.$spacing-xxl*2 0;
+}
+
+.items__card {
+  border: 1px solid variables.$gray-200;
+  padding: variables.$spacing-sm;
+  @include mixins.flex($direction: column);
+  position: relative;
+  transition: 0.3s ease;
+
+  &:hover {
+    cursor: pointer;
+    transform: translateY(-1px);
+    box-shadow: 0 7px 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  &-image {
+    align-self: center;
+  }
+
+  & img {
+    max-width: 100%;
+  }
+
+  &-info {
+    height: 100%;
+    justify-content: flex-end;
+    @include mixins.flex($direction: column, $justify: flex-end);
+  }
+
+  &-sku {
+    @include mixins.font($weight: 400, $size: variables.$fs-sm, $line-height: 150%, $spacing: 0.02em);
+    color: variables.$gray-500;
+  }
+
+  &-title {
+    @include mixins.font($weight: 500, $size: variables.$fs-md, $line-height: 150%, $spacing: 0.02em);
+    padding: 5px 0 variables.$spacing-sm 0;
+  }
+
+  &-old-price {
+    @include mixins.font($weight: 400, $size: variables.$fs-md, $line-height: 140%, $spacing: 0.02em);
+    text-decoration: line-through;
+    color: variables.$gray-500;
+  }
+
+  &-current-price {
+    @include mixins.font($weight: 400, $size: variables.$fs-md, $line-height: 150%, $spacing: 0.02em);
+  }
+
+  &-actions {
+    @include mixins.flex($justify: space-between, $align: center);
+  }
+
+  &-price {
+    @include mixins.flex($gap: variables.$spacing-sm, $align: center);
+  }
+
+  &-discount {
+    position: absolute;
+    left: 0;
+    padding: 3px 16px;
+    background-color: variables.$bg-color-discount;
+    @include mixins.font($family: variables.$font-secondary, $size: variables.$fs-sm, $line-height: 130%, $spacing: 0.01em);
+    color: #fff;
+  }
+
+  &-controls {
+    @include mixins.flex($gap: variables.$spacing-sm);
+  }
+}

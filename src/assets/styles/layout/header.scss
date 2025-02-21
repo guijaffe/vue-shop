@@ -1,0 +1,10 @@
+@use '../base/variables';
+@use '../base/mixins';
+
+.header {
+  padding: variables.$spacing-lg 0;
+
+  &__title {
+    @include mixins.font(variables.$font-secondary, variables.$fs-xl, 600px, 133%);
+  }
+}

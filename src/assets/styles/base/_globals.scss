@@ -1,0 +1,51 @@
+@use "variables";
+@use "mixins";
+
+html {
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  @include mixins.font(variables.$font-primary);
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.container {
+  @include mixins.container
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));
+  column-gap: variables.$spacing-xxl;
+  row-gap: variables.$spacing-xl;
+}
+
+.btn {
+  border: none;
+  cursor: pointer;
+  width: 36px;
+  height: 36px;
+  transition: 0.3s ease-in-out;
+  @include mixins.flex($align: center, $justify: center);
+  background: transparent;
+
+  &:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 0 7px rgba(0, 0, 0, 0.2);
+    border-radius: 10px;
+  }
+}

@@ -1,0 +1,27 @@
+@use "../base/variables";
+@use "../base/mixins";
+
+
+.selects {
+  &__wrapper {
+    @include mixins.flex($gap: variables.$spacing-md, $wrap: wrap);
+  }
+
+  &__label {
+    @include mixins.font(variables.$font-secondary, variables.$fs-xs, 400, $spacing: 0.03em);
+    color: variables.$gray-700;
+    padding: 0 16px;
+  }
+}
+
+.selects__group {
+  @include mixins.flex(column, $gap: 6px);
+  width: 100%;
+  max-width: 288px;
+}
+
+.selects__input {
+  background: variables.$gray-100;
+  border-color: variables.$gray-100;
+  padding: variables.$spacing-sm 16px;
+}
